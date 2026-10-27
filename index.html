@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Track & Racing Club | Feel The Adrenaline</title>
-    <!-- Tailwind CSS CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apex Racing GT | Arcade Track Experience</title>
+    <!-- Tailwind CSS for Responsive Layout -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Orbitron & Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -20,29 +20,28 @@
                     colors: {
                         apexRed: '#FF1801',
                         apexGold: '#FFD700',
-                        apexDark: '#0B0C10',
-                        apexCard: '#12141C',
-                        apexGray: '#1F2330',
-                        apexAccent: '#2A2F42'
+                        apexDark: '#0A0B0E',
+                        apexCard: '#12151E',
+                        apexGray: '#1C202E',
                     },
                     fontFamily: {
                         orbitron: ['Orbitron', 'sans-serif'],
                         sans: ['Inter', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'carbon-pattern': "radial-gradient(#1f2330 1px, transparent 1px), radial-gradient(#1f2330 1px, #0b0c10 1px)",
                     }
                 }
             }
         }
     </script>
+
     <style>
-        /* Custom Carbon Fiber & Motorsport Styling */
+        /* Custom Styling for High-Performance Motorsport Feel */
         body {
-            background-color: #0B0C10;
+            background-color: #0A0B0E;
             color: #E2E8F0;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .font-racing {
@@ -50,1507 +49,1031 @@
             letter-spacing: 0.05em;
         }
 
+        /* Carbon fiber patterned background */
         .carbon-bg {
-            background-color: #0b0c10;
-            background-image: radial-gradient(#1f2330 1.5px, transparent 1.5px), radial-gradient(#1f2330 1.5px, #0b0c10 1.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
+            background-color: #0a0b0e;
+            background-image: radial-gradient(#1c202e 1.5px, transparent 1.5px), radial-gradient(#1c202e 1.5px, #0a0b0e 1.5px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
         }
 
         .glass-panel {
-            background: rgba(18, 20, 28, 0.85);
+            background: rgba(18, 21, 30, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .glass-card {
-            background: linear-gradient(135deg, rgba(31, 35, 48, 0.6) 0%, rgba(18, 20, 28, 0.9) 100%);
+        /* Custom Touch Controls styling */
+        .touch-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(255, 24, 1, 0.5);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(255, 24, 1, 0.3);
+            active: background-color rgba(255, 24, 1, 0.6);
         }
 
         .glow-red {
-            box-shadow: 0 0 20px rgba(255, 24, 1, 0.4);
+            box-shadow: 0 0 25px rgba(255, 24, 1, 0.4);
         }
 
-        .glow-gold {
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        /* Canvas Wrapper Aspect Ratio */
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 2px solid rgba(255, 24, 1, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
         }
 
-        .text-glow {
-            text-shadow: 0 0 12px rgba(255, 24, 1, 0.6);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0C10;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2A2F42;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FF1801;
-        }
-
-        /* Speed Line Animations */
-        @keyframes speedLine {
-            0% { transform: translateX(-100%); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateX(100%); opacity: 0; }
-        }
-
-        .speed-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #FF1801, transparent);
-            animation: speedLine 3s infinite linear;
-        }
-
-        /* Print styles for digital ticket pass */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #printablePass, #printablePass * {
-                visibility: visible;
-            }
-            #printablePass {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                color: #000;
-                background: #fff;
+        @media (max-width: 640px) {
+            #gameContainer {
+                aspect-ratio: 4 / 5; /* Taller on mobile screens */
             }
         }
     </style>
 </head>
-<body class="carbon-bg antialiased min-h-screen flex flex-col justify-between selection:bg-apexRed selection:text-white">
+<body class="carbon-bg min-h-screen flex flex-col justify-between selection:bg-apexRed selection:text-white">
 
-    <!-- Toast Notification Container -->
-    <div id="toastContainer" class="fixed top-20 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
-
-    <!-- STICKY GLASSMORPHISM NAVBAR -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#hero" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-apexRed rounded-skew flex items-center justify-center transform -skew-x-12 group-hover:bg-red-600 transition-colors shadow-lg shadow-red-900/40">
-                    <i class="fa-solid fa-flag-checkered text-xl text-white transform skew-x-12"></i>
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-apexRed rounded transform -skew-x-12 flex items-center justify-center font-racing font-black text-white text-lg">
+                    <i class="fa-solid fa-flag-checkered transform skew-x-12"></i>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-racing font-black text-xl sm:text-2xl tracking-wider text-white flex items-center">
-                        APEX<span class="text-apexRed">TRACK</span>
-                    </span>
-                    <span class="text-[9px] font-racing tracking-widest text-gray-400 uppercase -mt-1">
-                        & Racing Club
-                    </span>
-                </div>
+                <span class="font-racing font-black text-xl text-white tracking-wider">
+                    APEX<span class="text-apexRed">RACING</span> <span class="text-xs text-apexGold font-normal border border-apexGold/40 px-1.5 py-0.5 rounded">GT</span>
+                </span>
             </a>
 
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
-                <a href="#experiences" class="hover:text-apexRed transition-colors py-1">Experiences</a>
-                <a href="#fleet" class="hover:text-apexRed transition-colors py-1">Supercar Fleet</a>
-                <a href="#tracks" class="hover:text-apexRed transition-colors py-1">Tracks</a>
-                <a href="#booking" class="hover:text-apexRed transition-colors py-1">Book Session</a>
-                <a href="#waiver" class="hover:text-apexRed transition-colors py-1">Safety & Waiver</a>
-            </nav>
-
-            <!-- Actions Right -->
+            <!-- Quick Audio Control & High Score Banner -->
             <div class="flex items-center gap-4">
-                <button onclick="openReservationsModal()" class="relative p-2.5 rounded-lg bg-apexGray hover:bg-apexAccent text-gray-200 transition-all border border-gray-700/50" title="My Booked Sessions">
-                    <i class="fa-solid fa-ticket text-apexGold"></i>
-                    <span id="reservationBadge" class="hidden absolute -top-1.5 -right-1.5 bg-apexRed text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-apexDark">0</span>
-                </button>
+                <div class="hidden sm:flex items-center gap-2 bg-apexGray px-3 py-1.5 rounded-lg border border-gray-700/60 text-xs">
+                    <i class="fa-solid fa-trophy text-apexGold"></i>
+                    <span class="text-gray-400 font-racing">BEST:</span>
+                    <span id="navHighScore" class="font-racing font-bold text-white">0</span>
+                </div>
 
-                <a href="#booking" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-racing font-bold uppercase text-white bg-apexRed rounded-md hover:bg-red-600 transition-all transform -skew-x-6 hover:skew-x-0 glow-red">
-                    <span class="inline-block transform skew-x-6">Book Lap</span>
-                </a>
-
-                <!-- Mobile Hamburger Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-apexGray">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                <button id="audioToggleBtn" onclick="toggleMute()" class="px-3 py-1.5 rounded-lg bg-apexGray hover:bg-gray-700 border border-gray-700 text-xs text-white font-racing flex items-center gap-2 transition-colors">
+                    <i id="audioIcon" class="fa-solid fa-volume-high text-apexRed"></i>
+                    <span id="audioText" class="hidden sm:inline">SOUND ON</span>
                 </button>
             </div>
-        </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden glass-panel border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#experiences" class="mobile-link block py-2 text-gray-200 font-medium hover:text-apexRed">Experiences</a>
-            <a href="#fleet" class="mobile-link block py-2 text-gray-200 font-medium hover:text-apexRed">Supercar Fleet</a>
-            <a href="#tracks" class="mobile-link block py-2 text-gray-200 font-medium hover:text-apexRed">Tracks</a>
-            <a href="#booking" class="mobile-link block py-2 text-gray-200 font-medium hover:text-apexRed">Book Session</a>
-            <a href="#waiver" class="mobile-link block py-2 text-gray-200 font-medium hover:text-apexRed">Safety & Waiver</a>
-            <button onclick="openReservationsModal()" class="w-full text-left py-2 text-apexGold font-medium flex items-center gap-2">
-                <i class="fa-solid fa-ticket"></i> My Reservations
-            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative py-20 lg:py-32 overflow-hidden border-b border-gray-800">
-        <div class="speed-line top-1/4 w-full"></div>
-        <div class="speed-line top-3/4 w-full" style="animation-delay: 1.5s;"></div>
+    <!-- MAIN GAME WORKSPACE -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6 flex flex-col items-center justify-center">
 
-        <!-- Background Graphic Elements -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-apexDark/90 to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full bg-cover bg-center opacity-40 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=1600');"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="max-w-2xl">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/80 border border-apexRed/40 text-apexRed text-xs font-racing uppercase tracking-wider mb-6">
-                    <span class="w-2 h-2 rounded-full bg-apexRed animate-ping"></span>
-                    2026 Racing Season Open
-                </div>
-
-                <h1 class="text-4xl sm:text-6xl font-racing font-black text-white leading-none tracking-tight mb-6">
-                    FEEL THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-apexRed via-red-500 to-amber-500 text-glow">ADRENALINE</span>.<br>
-                    MASTER THE APEX.
-                </h1>
-
-                <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
-                    Unleash raw track performance with world-class telemetry, professional racing coaches, and high-octane GT3 and Formula supercars on international FIA grade circuits.
-                </p>
-
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#booking" class="px-8 py-4 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-base rounded-md transition-all transform -skew-x-6 hover:skew-x-0 glow-red flex items-center gap-3">
-                        <span class="transform skew-x-6 flex items-center gap-2">
-                            BOOK YOUR LAP NOW <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </span>
-                    </a>
-                    <a href="#fleet" class="px-8 py-4 bg-apexGray hover:bg-apexAccent text-white font-racing font-semibold text-base rounded-md border border-gray-700 transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-car-side text-apexGold"></i> Explore Fleet
-                    </a>
-                </div>
-            </div>
+        <!-- TITLE / HERO TAG -->
+        <div class="text-center mb-4">
+            <h1 class="text-2xl sm:text-4xl font-racing font-black text-white tracking-tight uppercase">
+                SUPERCAR <span class="text-transparent bg-clip-text bg-gradient-to-r from-apexRed via-red-500 to-amber-400">TRACK CHALLENGE</span>
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1">Dodge traffic, grab nitro boosters & fuel canisters, and set the lap velocity record!</p>
         </div>
 
-        <!-- STATS TICKER BAR -->
-        <div class="mt-16 border-y border-gray-800/80 bg-apexDark/90 backdrop-blur-md relative z-20">
-            <div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="border-r border-gray-800/60 last:border-0">
-                    <p class="text-2xl sm:text-3xl font-racing font-black text-apexGold">210+ MPH</p>
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Top Track Speed</p>
-                </div>
-                <div class="border-r border-gray-800/60 last:border-0">
-                    <p class="text-2xl sm:text-3xl font-racing font-black text-white">5 CIRCUITS</p>
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">FIA Grade Layouts</p>
-                </div>
-                <div class="border-r border-gray-800/60 last:border-0">
-                    <p class="text-2xl sm:text-3xl font-racing font-black text-apexRed">15+ SUPERCARS</p>
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">GT3 & Formula Fleet</p>
-                </div>
-                <div>
-                    <p class="text-2xl sm:text-3xl font-racing font-black text-emerald-400">100%</p>
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Safety Record</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE EXPLORER SECTION -->
-    <section id="experiences" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-                <span class="text-apexRed font-racing text-sm font-bold tracking-widest uppercase">Drive Packages</span>
-                <h2 class="text-3xl sm:text-4xl font-racing font-black text-white mt-1">RACING EXPERIENCES</h2>
-            </div>
+        <!-- GAME VIEWPORT CANVAS WRAPPER -->
+        <div id="gameContainer" class="relative group">
             
-            <!-- Category Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="experienceFilters">
-                <button data-filter="all" class="filter-btn active px-4 py-2 rounded-md text-xs font-racing font-bold uppercase transition-all bg-apexRed text-white">All Packages</button>
-                <button data-filter="GT Supercars" class="filter-btn px-4 py-2 rounded-md text-xs font-racing font-bold uppercase transition-all bg-apexGray text-gray-300 hover:bg-apexAccent">GT Supercars</button>
-                <button data-filter="Single Seater" class="filter-btn px-4 py-2 rounded-md text-xs font-racing font-bold uppercase transition-all bg-apexGray text-gray-300 hover:bg-apexAccent">Single Seater</button>
-                <button data-filter="Drift" class="filter-btn px-4 py-2 rounded-md text-xs font-racing font-bold uppercase transition-all bg-apexGray text-gray-300 hover:bg-apexAccent">Drift & Academy</button>
-            </div>
-        </div>
+            <!-- HTML5 CANVAS ELEMENT -->
+            <canvas id="gameCanvas" class="w-full h-full block bg-gray-950"></canvas>
 
-        <!-- Experience Cards Grid -->
-        <div id="experiencesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards populated dynamically via JS -->
-        </div>
-    </section>
-
-    <!-- FLEET SHOWCASE SECTION -->
-    <section id="fleet" class="py-20 bg-apexDark/60 border-y border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
-                <div>
-                    <span class="text-apexGold font-racing text-sm font-bold tracking-widest uppercase">The Arsenal</span>
-                    <h2 class="text-3xl sm:text-4xl font-racing font-black text-white mt-1">SUPERCAR FLEET</h2>
+            <!-- OVERLAY: START SCREEN -->
+            <div id="startOverlay" class="absolute inset-0 bg-black/85 backdrop-blur-md z-20 flex flex-col items-center justify-center p-6 text-center">
+                <div class="w-16 h-16 bg-apexRed/20 border-2 border-apexRed rounded-full flex items-center justify-center text-apexRed text-3xl mb-4 animate-bounce">
+                    <i class="fa-solid fa-gauge-high"></i>
                 </div>
-
-                <!-- Live Search Box -->
-                <div class="relative w-full md:w-72">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="carSearch" placeholder="Search car or model..." class="w-full bg-apexGray border border-gray-700/80 rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-apexRed transition-colors">
-                </div>
-            </div>
-
-            <!-- Fleet Grid -->
-            <div id="fleetGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cars dynamically loaded -->
-            </div>
-        </div>
-    </section>
-
-    <!-- TRACK SELECTOR SECTION -->
-    <section id="tracks" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-apexRed font-racing text-sm font-bold tracking-widest uppercase">FIA Grade Circuits</span>
-            <h2 class="text-3xl sm:text-4xl font-racing font-black text-white mt-1">INTERNATIONAL TRACKS</h2>
-            <p class="text-gray-400 text-sm mt-2">Select a circuit layout to view technical details, telemetry stats, and lap records.</p>
-        </div>
-
-        <!-- Track Selector Tabs -->
-        <div class="flex flex-wrap justify-center gap-3 mb-10" id="trackTabs">
-            <!-- Dynamic Track Buttons -->
-        </div>
-
-        <!-- Selected Track Detail Card -->
-        <div id="trackDisplay" class="glass-card rounded-2xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-gray-800">
-            <!-- Dynamic Track Content -->
-        </div>
-    </section>
-
-    <!-- INTERACTIVE MULTI-STEP BOOKING ENGINE -->
-    <section id="booking" class="py-20 bg-gradient-to-b from-apexDark to-black border-t border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <span class="text-apexRed font-racing text-sm font-bold tracking-widest uppercase">Reserve Your Slot</span>
-                <h2 class="text-3xl sm:text-5xl font-racing font-black text-white mt-1">RACE RESERVATION ENGINE</h2>
-            </div>
-
-            <!-- Multi-step Indicator Bar -->
-            <div class="mb-10 max-w-3xl mx-auto">
-                <div class="flex items-center justify-between relative">
-                    <!-- Progress Line background -->
-                    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-apexGray z-0"></div>
-                    <div id="stepProgressBar" class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-apexRed z-0 transition-all duration-300" style="width: 0%;"></div>
-
-                    <!-- Step 1 Indicator -->
-                    <div class="step-indicator relative z-10 flex flex-col items-center gap-2" data-step="1">
-                        <div class="step-icon w-10 h-10 rounded-full bg-apexRed text-white font-racing font-bold flex items-center justify-center text-sm border-2 border-apexDark shadow-lg">1</div>
-                        <span class="text-xs font-racing font-semibold text-white">Experience & Car</span>
-                    </div>
-
-                    <!-- Step 2 Indicator -->
-                    <div class="step-indicator relative z-10 flex flex-col items-center gap-2" data-step="2">
-                        <div class="step-icon w-10 h-10 rounded-full bg-apexGray text-gray-400 font-racing font-bold flex items-center justify-center text-sm border-2 border-apexDark">2</div>
-                        <span class="text-xs font-racing font-semibold text-gray-400">Track & Schedule</span>
-                    </div>
-
-                    <!-- Step 3 Indicator -->
-                    <div class="step-indicator relative z-10 flex flex-col items-center gap-2" data-step="3">
-                        <div class="step-icon w-10 h-10 rounded-full bg-apexGray text-gray-400 font-racing font-bold flex items-center justify-center text-sm border-2 border-apexDark">3</div>
-                        <span class="text-xs font-racing font-semibold text-gray-400">Driver Info</span>
-                    </div>
-
-                    <!-- Step 4 Indicator -->
-                    <div class="step-indicator relative z-10 flex flex-col items-center gap-2" data-step="4">
-                        <div class="step-icon w-10 h-10 rounded-full bg-apexGray text-gray-400 font-racing font-bold flex items-center justify-center text-sm border-2 border-apexDark">4</div>
-                        <span class="text-xs font-racing font-semibold text-gray-400">Confirmation</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Booking Interface -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Left Column: Form Steps -->
-                <div class="lg:col-span-8 glass-panel rounded-2xl p-6 sm:p-8 border border-gray-800">
-                    <form id="bookingForm" onsubmit="return false;">
-                        
-                        <!-- STEP 1: EXPERIENCE & VEHICLE & ADD-ONS -->
-                        <div id="bookingStep1" class="booking-step space-y-6">
-                            <h3 class="text-xl font-racing font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3">
-                                <i class="fa-solid fa-flag-checkered text-apexRed"></i> Step 1: Select Experience Package & Vehicle
-                            </h3>
-
-                            <div>
-                                <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Package</label>
-                                <select id="formPackage" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                    <!-- Options filled dynamically -->
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Car Selection</label>
-                                <select id="formCar" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                    <!-- Options filled dynamically -->
-                                </select>
-                            </div>
-
-                            <!-- Optional Add-ons Checkboxes -->
-                            <div>
-                                <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-3">Telemetry & VIP Add-ons</label>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addOnsContainer">
-                                    <label class="flex items-center gap-3 p-3 bg-apexGray/60 rounded-lg border border-gray-700/60 cursor-pointer hover:border-gray-500">
-                                        <input type="checkbox" data-name="4K GoPro & Helmet Cam" data-price="75" class="addon-checkbox text-apexRed rounded focus:ring-0">
-                                        <div class="text-xs">
-                                            <p class="font-bold text-white">4K GoPro Telemetry Cam</p>
-                                            <p class="text-gray-400">+$75 / session</p>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-center gap-3 p-3 bg-apexGray/60 rounded-lg border border-gray-700/60 cursor-pointer hover:border-gray-500">
-                                        <input type="checkbox" data-name="Pro Suit & Helmet Rental" data-price="50" class="addon-checkbox text-apexRed rounded focus:ring-0">
-                                        <div class="text-xs">
-                                            <p class="font-bold text-white">Pro OMP Suit & Helmet</p>
-                                            <p class="text-gray-400">+$50 / driver</p>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-center gap-3 p-3 bg-apexGray/60 rounded-lg border border-gray-700/60 cursor-pointer hover:border-gray-500">
-                                        <input type="checkbox" data-name="1-on-1 Telemetry Debrief" data-price="120" class="addon-checkbox text-apexRed rounded focus:ring-0">
-                                        <div class="text-xs">
-                                            <p class="font-bold text-white">1-on-1 Data Debrief</p>
-                                            <p class="text-gray-400">+$120 / session</p>
-                                        </div>
-                                    </label>
-                                    <label class="flex items-center gap-3 p-3 bg-apexGray/60 rounded-lg border border-gray-700/60 cursor-pointer hover:border-gray-500">
-                                        <input type="checkbox" data-name="VIP Pit Lounge Guest Pass" data-price="95" class="addon-checkbox text-apexRed rounded focus:ring-0">
-                                        <div class="text-xs">
-                                            <p class="font-bold text-white">VIP Lounge Guest Pass</p>
-                                            <p class="text-gray-400">+$95 / pass</p>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-end pt-4">
-                                <button type="button" onclick="goToStep(2)" class="px-6 py-3 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-sm rounded-lg transition-all flex items-center gap-2">
-                                    Next: Track & Schedule <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 2: SCHEDULE & TRACK -->
-                        <div id="bookingStep2" class="booking-step hidden space-y-6">
-                            <h3 class="text-xl font-racing font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3">
-                                <i class="fa-solid fa-calendar-days text-apexRed"></i> Step 2: Choose Circuit & Time
-                            </h3>
-
-                            <div>
-                                <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Track Circuit</label>
-                                <select id="formTrack" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                    <!-- Dynamic Track Options -->
-                                </select>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Session Date</label>
-                                    <input type="date" id="formDate" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Time Slot Session</label>
-                                    <select id="formTime" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                        <option value="09:00 AM - Morning Apex">09:00 AM - Morning Apex (Available)</option>
-                                        <option value="11:30 AM - Midday Sprint">11:30 AM - Midday Sprint (Available)</option>
-                                        <option value="02:30 PM - Afternoon Endurance">02:30 PM - Afternoon Endurance (Available)</option>
-                                        <option value="05:30 PM - Twilight Sunset">05:30 PM - Twilight Sunset (Limited)</option>
-                                        <option value="08:00 PM - Night Supercar Session">08:00 PM - Night Supercar Session (Available)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-between pt-4">
-                                <button type="button" onclick="goToStep(1)" class="px-5 py-2.5 bg-apexGray hover:bg-apexAccent text-gray-300 font-racing text-sm rounded-lg">
-                                    <i class="fa-solid fa-arrow-left"></i> Back
-                                </button>
-                                <button type="button" onclick="goToStep(3)" class="px-6 py-3 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-sm rounded-lg transition-all flex items-center gap-2">
-                                    Next: Driver Info <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 3: DRIVER DETAILS -->
-                        <div id="bookingStep3" class="booking-step hidden space-y-6">
-                            <h3 class="text-xl font-racing font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3">
-                                <i class="fa-solid fa-user-gear text-apexRed"></i> Step 3: Driver Details & Group
-                            </h3>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Full Name *</label>
-                                    <input type="text" id="driverName" placeholder="e.g. Lewis Hamilton" required class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Email Address *</label>
-                                    <input type="email" id="driverEmail" placeholder="driver@apex.com" required class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Phone Number</label>
-                                    <input type="tel" id="driverPhone" placeholder="+1 (555) 000-0000" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Age (18+ Required) *</label>
-                                    <input type="number" id="driverAge" min="18" max="99" value="25" required class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Participants Count</label>
-                                    <input type="number" id="driverCount" min="1" max="10" value="1" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Experience Level</label>
-                                    <select id="driverExperience" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                        <option value="Novice / First Timer">Novice (First Time on Track)</option>
-                                        <option value="Intermediate">Intermediate (Track Day Experienced)</option>
-                                        <option value="Advanced / Licensed Racer">Advanced / FIA Licensed</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Helmet Size</label>
-                                    <select id="helmetSize" class="w-full bg-apexGray border border-gray-700 rounded-lg p-3 text-white focus:border-apexRed focus:outline-none">
-                                        <option value="M">Medium (M)</option>
-                                        <option value="S">Small (S)</option>
-                                        <option value="L">Large (L)</option>
-                                        <option value="XL">Extra Large (XL)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="p-4 bg-red-950/30 border border-apexRed/30 rounded-lg flex items-start gap-3">
-                                <input type="checkbox" id="safetyWaiverAgree" required class="mt-1 text-apexRed focus:ring-0">
-                                <label for="safetyWaiverAgree" class="text-xs text-gray-300">
-                                    I confirm I am at least 18 years of age with a valid driver's license and agree to adhere to the Apex Safety Code and Liability Release terms.
-                                </label>
-                            </div>
-
-                            <div class="flex justify-between pt-4">
-                                <button type="button" onclick="goToStep(2)" class="px-5 py-2.5 bg-apexGray hover:bg-apexAccent text-gray-300 font-racing text-sm rounded-lg">
-                                    <i class="fa-solid fa-arrow-left"></i> Back
-                                </button>
-                                <button type="button" onclick="goToStep(4)" class="px-6 py-3 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-sm rounded-lg transition-all flex items-center gap-2">
-                                    Review Summary <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 4: CONFIRMATION & PAYMENT SIMULATION -->
-                        <div id="bookingStep4" class="booking-step hidden space-y-6">
-                            <h3 class="text-xl font-racing font-bold text-white flex items-center gap-2 border-b border-gray-800 pb-3">
-                                <i class="fa-solid fa-credit-card text-apexRed"></i> Step 4: Finalize Reservation
-                            </h3>
-
-                            <div class="p-4 bg-apexGray rounded-xl border border-gray-700 space-y-2 text-xs text-gray-300">
-                                <div class="flex justify-between">
-                                    <span class="font-bold text-white">Driver:</span>
-                                    <span id="summaryDriverName">-</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-bold text-white">Selected Track:</span>
-                                    <span id="summaryTrackName">-</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-bold text-white">Date & Time:</span>
-                                    <span id="summaryDateTime">-</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="font-bold text-white">Package & Vehicle:</span>
-                                    <span id="summaryCarPkg">-</span>
-                                </div>
-                            </div>
-
-                            <!-- Promo Code Area -->
-                            <div>
-                                <label class="block text-xs font-racing text-gray-300 uppercase tracking-wider mb-2">Promo Code (Try APEX10)</label>
-                                <div class="flex gap-2">
-                                    <input type="text" id="promoCodeInput" placeholder="Enter code" class="uppercase bg-apexGray border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-apexRed flex-grow">
-                                    <button type="button" onclick="applyPromoCode()" class="px-4 py-2 bg-apexAccent hover:bg-gray-700 text-apexGold font-racing font-bold text-xs rounded-lg uppercase">Apply</button>
-                                </div>
-                                <p id="promoStatus" class="text-xs mt-1 font-semibold hidden"></p>
-                            </div>
-
-                            <div class="p-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl text-xs text-emerald-400 flex items-center gap-3">
-                                <i class="fa-solid fa-shield-halved text-lg"></i>
-                                <span>No upfront payment required. Instant reservation confirmation with digital pass.</span>
-                            </div>
-
-                            <div class="flex justify-between pt-4">
-                                <button type="button" onclick="goToStep(3)" class="px-5 py-2.5 bg-apexGray hover:bg-apexAccent text-gray-300 font-racing text-sm rounded-lg">
-                                    <i class="fa-solid fa-arrow-left"></i> Edit Details
-                                </button>
-                                <button type="button" onclick="finalizeBooking()" class="px-8 py-3.5 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-base rounded-lg shadow-lg shadow-red-900/40 glow-red transition-all flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check"></i> CONFIRM & GENERATE PASS
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-
-                <!-- Right Column: Real-time Price Breakdown Card -->
-                <div class="lg:col-span-4 glass-card rounded-2xl p-6 border border-gray-800 sticky top-28">
-                    <h3 class="text-lg font-racing font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-3">
-                        <i class="fa-solid fa-receipt text-apexGold"></i> Real-time Breakdown
-                    </h3>
-
-                    <div class="space-y-3 text-xs mb-6">
-                        <div class="flex justify-between text-gray-300">
-                            <span>Base Package Rate</span>
-                            <span id="calcBasePrice" class="font-bold text-white">$0</span>
-                        </div>
-                        <div class="flex justify-between text-gray-300">
-                            <span>Selected Vehicle Surcharge</span>
-                            <span id="calcCarPrice" class="font-bold text-white">+$0</span>
-                        </div>
-                        <div class="flex justify-between text-gray-300">
-                            <span>Selected Add-ons</span>
-                            <span id="calcAddonsPrice" class="font-bold text-white">+$0</span>
-                        </div>
-                        <div class="flex justify-between text-gray-300">
-                            <span>Participants Multiplier</span>
-                            <span id="calcDriverMultiplier" class="font-bold text-white">x1</span>
-                        </div>
-                        <div id="calcDiscountRow" class="flex justify-between text-emerald-400 hidden">
-                            <span>Promo Discount (10%)</span>
-                            <span id="calcDiscountPrice">-$0</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>Track Safety Fee & Tax (8%)</span>
-                            <span id="calcTaxPrice">$0</span>
-                        </div>
-
-                        <div class="border-t border-gray-700/80 pt-4 flex justify-between items-end">
-                            <div>
-                                <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400">Total Due</p>
-                                <p id="calcTotalPrice" class="text-3xl font-racing font-black text-apexGold">$0</p>
-                            </div>
-                            <span class="text-[10px] text-gray-500 font-mono">USD</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-apexGray/70 rounded-lg p-3 text-[11px] text-gray-400 space-y-1">
-                        <p><i class="fa-solid fa-circle-info text-apexRed"></i> Includes track insurance, helmet & suit briefing.</p>
-                        <p><i class="fa-solid fa-rotate-left text-apexGold"></i> Free cancellation up to 48h prior.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- DRIVER SAFETY & WAIVER ACCORDION SECTION -->
-    <section id="waiver" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-            <span class="text-apexGold font-racing text-sm font-bold tracking-widest uppercase">Safety First</span>
-            <h2 class="text-3xl font-racing font-black text-white mt-1">TRACK PROTOCOLS & WAIVER</h2>
-        </div>
-
-        <div class="space-y-4">
-            <!-- Accordion Item 1 -->
-            <div class="glass-card rounded-xl border border-gray-800 overflow-hidden">
-                <button onclick="toggleAccordion('acc1')" class="w-full px-6 py-4 text-left font-racing text-sm font-bold text-white flex justify-between items-center hover:bg-apexGray/50">
-                    <span><i class="fa-solid fa-shield text-apexRed mr-2"></i> Driver Eligibility & License Requirements</span>
-                    <i id="acc1-icon" class="fa-solid fa-chevron-down transition-transform"></i>
+                <h2 class="text-3xl sm:text-5xl font-racing font-black text-white mb-2 tracking-wider">READY TO RACE?</h2>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-md mb-6 leading-relaxed">
+                    Use <span class="text-apexGold font-bold">Arrow Keys / WASD</span> or <span class="text-apexGold font-bold">Touch Buttons</span> to steer and throttle. Avoid traffic and obstacles; collect Fuel and Nitro!
+                </p>
+                <button onclick="startGameSequence()" class="px-8 py-3.5 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-lg rounded-xl shadow-lg glow-red transform hover:scale-105 transition-all flex items-center gap-3">
+                    <i class="fa-solid fa-play"></i> START ENGINE
                 </button>
-                <div id="acc1" class="hidden px-6 pb-4 text-xs text-gray-300 leading-relaxed border-t border-gray-800/60 pt-3">
-                    All drivers must present a valid, non-expired driver's license from their state or country of residence upon arrival. Drivers must be at least 18 years old. No prior circuit experience is required for GT Supercars; novice drivers receive mandatory telemetry & safety briefings.
+            </div>
+
+            <!-- OVERLAY: COUNTDOWN -->
+            <div id="countdownOverlay" class="absolute inset-0 bg-black/60 z-20 hidden flex items-center justify-center pointer-events-none">
+                <span id="countdownText" class="font-racing font-black text-7xl sm:text-9xl text-apexGold drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] animate-ping">3</span>
+            </div>
+
+            <!-- OVERLAY: PAUSE SCREEN -->
+            <div id="pauseOverlay" class="absolute inset-0 bg-black/80 backdrop-blur-md z-20 hidden flex flex-col items-center justify-center p-6 text-center">
+                <h2 class="text-3xl font-racing font-bold text-white mb-4">GAME PAUSED</h2>
+                <div class="flex gap-4">
+                    <button onclick="togglePause()" class="px-6 py-2.5 bg-apexRed text-white font-racing font-bold rounded-lg hover:bg-red-600">RESUME</button>
+                    <button onclick="resetToMenu()" class="px-6 py-2.5 bg-apexGray text-gray-300 font-racing font-bold rounded-lg border border-gray-700 hover:bg-gray-700">QUIT</button>
                 </div>
             </div>
 
-            <!-- Accordion Item 2 -->
-            <div class="glass-card rounded-xl border border-gray-800 overflow-hidden">
-                <button onclick="toggleAccordion('acc2')" class="w-full px-6 py-4 text-left font-racing text-sm font-bold text-white flex justify-between items-center hover:bg-apexGray/50">
-                    <span><i class="fa-solid fa-user-shield text-apexRed mr-2"></i> Mandatory Gear & Helmet Fitting</span>
-                    <i id="acc2-icon" class="fa-solid fa-chevron-down transition-transform"></i>
-                </button>
-                <div id="acc2" class="hidden px-6 pb-4 text-xs text-gray-300 leading-relaxed border-t border-gray-800/60 pt-3">
-                    Snell SA2020 or FIA 8859 approved full-face helmets and Hans devices are mandatory for all track sessions. Apex provides certified gear rentals, or drivers may bring their personal compliant racing gear after inspection by safety marshals.
+            <!-- OVERLAY: GAME OVER SCREEN -->
+            <div id="gameOverOverlay" class="absolute inset-0 bg-black/90 backdrop-blur-md z-20 hidden flex flex-col items-center justify-center p-6 text-center">
+                <div class="w-14 h-14 bg-red-950/80 border border-apexRed/50 rounded-full flex items-center justify-center text-apexRed text-2xl mb-3">
+                    <i class="fa-solid fa-car-burst"></i>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-racing font-black text-white mb-1">RACE TERMINATED</h2>
+                <p id="gameOverReason" class="text-xs text-red-400 font-mono mb-4">CRASHED INTO TRAFFIC</p>
+
+                <!-- Final Stats Board -->
+                <div class="grid grid-cols-2 gap-3 w-full max-w-xs bg-apexGray/80 p-4 rounded-xl border border-gray-800 mb-6 text-xs font-racing">
+                    <div class="text-left">
+                        <p class="text-gray-400">TOTAL SCORE</p>
+                        <p id="finalScore" class="text-xl font-bold text-apexGold">0</p>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-gray-400">DISTANCE</p>
+                        <p id="finalDistance" class="text-xl font-bold text-white">0 km</p>
+                    </div>
+                </div>
+
+                <!-- High Score Name Entry Input -->
+                <div id="highScoreInputArea" class="mb-4 hidden w-full max-w-xs">
+                    <p class="text-xs text-apexGold font-racing font-bold mb-1">🎉 NEW HIGH SCORE!</p>
+                    <input type="text" id="playerNameInput" maxlength="10" placeholder="ENTER CALLSIGN" class="w-full bg-black/80 border border-apexGold rounded-lg px-3 py-2 text-center text-white font-racing uppercase focus:outline-none">
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="startGameSequence()" class="px-6 py-3 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-sm rounded-xl shadow-lg glow-red transition-all">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> RESTART RACE
+                    </button>
+                    <button onclick="resetToMenu()" class="px-5 py-3 bg-apexGray text-gray-300 font-racing font-bold text-sm rounded-xl border border-gray-700 hover:bg-gray-700">
+                        MENU
+                    </button>
                 </div>
             </div>
 
-            <!-- Accordion Item 3 -->
-            <div class="glass-card rounded-xl border border-gray-800 overflow-hidden">
-                <button onclick="toggleAccordion('acc3')" class="w-full px-6 py-4 text-left font-racing text-sm font-bold text-white flex justify-between items-center hover:bg-apexGray/50">
-                    <span><i class="fa-solid fa-cloud-sun-rain text-apexRed mr-2"></i> Weather & Track Conditions Policy</span>
-                    <i id="acc3-icon" class="fa-solid fa-chevron-down transition-transform"></i>
-                </button>
-                <div id="acc3" class="hidden px-6 pb-4 text-xs text-gray-300 leading-relaxed border-t border-gray-800/60 pt-3">
-                    Sessions run rain or shine with wet compound tires supplied for GT Supercars. In the event of severe lightning or flooding track closures, sessions will be rescheduled with zero fee penalty or fully credited.
+            <!-- IN-GAME HUD OVERLAY LAYER -->
+            <div id="hudLayer" class="absolute inset-0 z-10 pointer-events-none p-3 sm:p-4 flex flex-col justify-between">
+                <!-- Top HUD Bar -->
+                <div class="flex justify-between items-start">
+                    <!-- Fuel & Health Bars -->
+                    <div class="space-y-1.5 w-32 sm:w-44">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-racing font-bold text-gray-300 mb-0.5">
+                                <span><i class="fa-solid fa-gas-pump text-apexGold"></i> FUEL</span>
+                                <span id="hudFuelVal">100%</span>
+                            </div>
+                            <div class="w-full h-2 bg-black/60 rounded-full border border-gray-700 overflow-hidden">
+                                <div id="hudFuelBar" class="h-full bg-apexGold transition-all duration-200" style="width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-[10px] font-racing font-bold text-gray-300 mb-0.5">
+                                <span><i class="fa-solid fa-heart-pulse text-apexRed"></i> INTEGRITY</span>
+                                <span id="hudHealthVal">100%</span>
+                            </div>
+                            <div class="w-full h-2 bg-black/60 rounded-full border border-gray-700 overflow-hidden">
+                                <div id="hudHealthBar" class="h-full bg-apexRed transition-all duration-200" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pause & Sound Quick Toggles -->
+                    <div class="pointer-events-auto flex items-center gap-2">
+                        <button onclick="togglePause()" class="w-8 h-8 rounded-lg bg-black/60 border border-gray-700 text-white flex items-center justify-center hover:bg-apexGray">
+                            <i class="fa-solid fa-pause text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Score Counter -->
+                    <div class="text-right">
+                        <p class="text-[9px] font-racing font-bold text-gray-400">SCORE</p>
+                        <p id="hudScore" class="text-xl sm:text-2xl font-racing font-black text-apexGold tracking-wider">0</p>
+                    </div>
+                </div>
+
+                <!-- Bottom Dashboard Telemetry -->
+                <div class="flex justify-between items-end">
+                    <!-- Speedometer & Gear -->
+                    <div class="flex items-baseline gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-gray-800">
+                        <div>
+                            <span id="hudSpeed" class="text-2xl sm:text-4xl font-racing font-black text-white">0</span>
+                            <span class="text-[10px] font-racing text-gray-400">KM/H</span>
+                        </div>
+                        <div class="text-xs font-racing font-bold text-apexRed border-l border-gray-700 pl-2">
+                            GEAR <span id="hudGear" class="text-white">1</span>
+                        </div>
+                    </div>
+
+                    <!-- Distance Counter -->
+                    <div class="bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-gray-800 text-right">
+                        <p class="text-[9px] font-racing text-gray-400">DISTANCE</p>
+                        <p id="hudDistance" class="text-sm sm:text-lg font-racing font-bold text-white">0.0 KM</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- MOBILE ON-SCREEN TOUCH CONTROLS (Displayed only on touch devices) -->
+            <div id="touchControls" class="absolute inset-x-0 bottom-3 z-30 flex justify-between px-4 sm:hidden pointer-events-auto">
+                <!-- Left/Right Steering Buttons -->
+                <div class="flex gap-2">
+                    <button id="btnLeft" class="touch-btn w-14 h-14 rounded-full flex items-center justify-center text-white text-xl active:bg-apexRed/60">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button id="btnRight" class="touch-btn w-14 h-14 rounded-full flex items-center justify-center text-white text-xl active:bg-apexRed/60">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Throttle / Brake Buttons -->
+                <div class="flex gap-2">
+                    <button id="btnBrake" class="touch-btn w-14 h-14 rounded-full flex items-center justify-center text-amber-400 text-xl active:bg-amber-600/60">
+                        <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+                    </button>
+                    <button id="btnGas" class="touch-btn w-14 h-14 rounded-full flex items-center justify-center text-emerald-400 text-xl active:bg-emerald-600/60">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </button>
+                </div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- LOWER DASHBOARD: INSTRUCTIONS & LEADERBOARD -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full mt-6">
+            
+            <!-- Controls Card -->
+            <div class="glass-panel p-5 rounded-2xl border border-gray-800">
+                <h3 class="text-sm font-racing font-bold text-white mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad text-apexRed"></i> RACE CONTROLS
+                </h3>
+                <div class="space-y-2 text-xs text-gray-300">
+                    <div class="flex justify-between items-center bg-apexGray/60 p-2 rounded-lg">
+                        <span>Steer Left / Right</span>
+                        <span class="font-mono bg-black/60 px-2 py-0.5 rounded text-apexGold">A / D or ← / →</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-apexGray/60 p-2 rounded-lg">
+                        <span>Accelerate / Nitro</span>
+                        <span class="font-mono bg-black/60 px-2 py-0.5 rounded text-apexGold">W or ↑</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-apexGray/60 p-2 rounded-lg">
+                        <span>Brake / Reverse</span>
+                        <span class="font-mono bg-black/60 px-2 py-0.5 rounded text-apexGold">S or ↓</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-apexGray/60 p-2 rounded-lg">
+                        <span>Pause Game</span>
+                        <span class="font-mono bg-black/60 px-2 py-0.5 rounded text-apexGold">ESC / P</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pickups Legend -->
+            <div class="glass-panel p-5 rounded-2xl border border-gray-800">
+                <h3 class="text-sm font-racing font-bold text-white mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-cubes-stacked text-apexGold"></i> TRACK BONUSES
+                </h3>
+                <div class="space-y-2 text-xs text-gray-300">
+                    <div class="flex items-center gap-2 bg-apexGray/60 p-2 rounded-lg">
+                        <i class="fa-solid fa-gas-pump text-apexGold text-base"></i>
+                        <div>
+                            <p class="font-bold text-white">Fuel Canister</p>
+                            <p class="text-[10px] text-gray-400">+30% Fuel Level</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-apexGray/60 p-2 rounded-lg">
+                        <i class="fa-solid fa-bolt text-emerald-400 text-base"></i>
+                        <div>
+                            <p class="font-bold text-white">Nitro Boost</p>
+                            <p class="text-[10px] text-gray-400">+500 Bonus Points & Speed</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-apexGray/60 p-2 rounded-lg">
+                        <i class="fa-solid fa-wrench text-blue-400 text-base"></i>
+                        <div>
+                            <p class="font-bold text-white">Repair Wrench</p>
+                            <p class="text-[10px] text-gray-400">+25% Hull Repairs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Card -->
+            <div class="glass-panel p-5 rounded-2xl border border-gray-800">
+                <h3 class="text-sm font-racing font-bold text-white mb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-trophy text-apexGold"></i> TOP DRIVERS</span>
+                    <button onclick="clearLeaderboard()" class="text-[10px] text-gray-500 hover:text-apexRed">CLEAR</button>
+                </h3>
+                <div id="leaderboardList" class="space-y-1.5 text-xs">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+        </div>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="bg-black border-t border-gray-800 py-12 text-gray-400 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-                <span class="font-racing font-black text-xl text-white tracking-wider flex items-center gap-2 mb-3">
-                    APEX<span class="text-apexRed">TRACK</span>
-                </span>
-                <p class="leading-relaxed">Premier motorsport track experiences, supercar telemetry, and FIA circuit rentals for thrill-seekers and professional racers.</p>
-            </div>
-
-            <div>
-                <h4 class="font-racing text-white font-bold mb-3 uppercase tracking-wider">Quick Navigation</h4>
-                <ul class="space-y-2">
-                    <li><a href="#experiences" class="hover:text-apexRed">Drive Packages</a></li>
-                    <li><a href="#fleet" class="hover:text-apexRed">Supercar Arsenal</a></li>
-                    <li><a href="#tracks" class="hover:text-apexRed">Circuits</a></li>
-                    <li><a href="#booking" class="hover:text-apexRed">Book Session</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="font-racing text-white font-bold mb-3 uppercase tracking-wider">Apex Paddock HQ</h4>
-                <p>100 Apex International Way</p>
-                <p>Speedway Valley, CA 90210</p>
-                <p class="mt-2"><i class="fa-solid fa-phone text-apexRed"></i> +1 (800) 555-APEX</p>
-                <p><i class="fa-solid fa-envelope text-apexRed"></i> telemetry@apextrack.com</p>
-            </div>
-
-            <div>
-                <h4 class="font-racing text-white font-bold mb-3 uppercase tracking-wider">Follow The Telemetry</h4>
-                <div class="flex gap-3 text-base text-gray-300">
-                    <a href="#" class="w-9 h-9 rounded-full bg-apexGray flex items-center justify-center hover:bg-apexRed hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-apexGray flex items-center justify-center hover:bg-apexRed hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-apexGray flex items-center justify-center hover:bg-apexRed hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800/80 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
-            <p>&copy; 2026 Apex Track & Racing Club Inc. All rights reserved.</p>
-            <div class="flex gap-4">
-                <a href="#" class="hover:underline">Privacy Policy</a>
-                <a href="#" class="hover:underline">Terms of Service</a>
-                <a href="#" class="hover:underline">Safety Code</a>
-            </div>
-        </div>
+    <footer class="border-t border-gray-800 py-4 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Apex Racing GT. Built with HTML5 Canvas & Web Audio API.</p>
     </footer>
 
-    <!-- MODAL: MY RESERVATIONS (Persisted in LocalStorage) -->
-    <div id="reservationsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-panel rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col border border-gray-700 shadow-2xl">
-            <div class="p-6 border-b border-gray-800 flex justify-between items-center">
-                <h3 class="font-racing text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-ticket text-apexGold"></i> My Booked Sessions
-                </h3>
-                <button onclick="closeReservationsModal()" class="text-gray-400 hover:text-white">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-
-            <div id="reservationsList" class="p-6 overflow-y-auto space-y-4 flex-grow">
-                <!-- Dynamic LocalStorage Content -->
-            </div>
-
-            <div class="p-4 border-t border-gray-800 flex justify-end">
-                <button onclick="closeReservationsModal()" class="px-5 py-2 bg-apexGray hover:bg-apexAccent text-white font-racing text-xs uppercase rounded-lg">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL: DIGITAL BOARDING PASS / CONFIRMATION TICKET -->
-    <div id="ticketModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="max-w-xl w-full my-8">
-            <div id="printablePass" class="bg-gradient-to-br from-gray-900 via-apexDark to-black rounded-2xl p-6 sm:p-8 border-2 border-apexRed shadow-2xl relative overflow-hidden">
-                <!-- Decorative Watermark -->
-                <i class="fa-solid fa-flag-checkered absolute -right-10 -bottom-10 text-9xl text-white/5 transform -rotate-12 pointer-events-none"></i>
-
-                <!-- Pass Header -->
-                <div class="flex justify-between items-start border-b border-gray-800 pb-4 mb-6">
-                    <div>
-                        <span class="text-xs font-racing font-bold text-apexRed tracking-widest uppercase">Official Boarding Pass</span>
-                        <h2 class="font-racing text-2xl font-black text-white">APEX TRACK CLUB</h2>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-[10px] font-mono text-gray-400">PASS CODE</p>
-                        <p id="ticketPassCode" class="font-mono font-bold text-apexGold text-sm">#APX-99812</p>
-                    </div>
-                </div>
-
-                <!-- Pass Details -->
-                <div class="grid grid-cols-2 gap-4 text-xs mb-6">
-                    <div>
-                        <p class="text-gray-400 font-racing uppercase text-[10px]">Driver</p>
-                        <p id="ticketDriver" class="font-bold text-white text-sm">Lewis Hamilton</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 font-racing uppercase text-[10px]">Track Circuit</p>
-                        <p id="ticketTrack" class="font-bold text-white text-sm">Apex GP Circuit</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 font-racing uppercase text-[10px]">Date & Slot</p>
-                        <p id="ticketDateTime" class="font-bold text-white text-sm">Oct 28, 2026 - Morning</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 font-racing uppercase text-[10px]">Vehicle / Package</p>
-                        <p id="ticketCarPkg" class="font-bold text-white text-sm">Porsche GT3 RS</p>
-                    </div>
-                </div>
-
-                <!-- QR Code Simulation Section -->
-                <div class="bg-white p-4 rounded-xl flex items-center justify-between gap-4 mb-6 text-black">
-                    <div>
-                        <p class="font-racing font-bold text-xs">PADDOCK ACCESS GRANTED</p>
-                        <p class="text-[10px] text-gray-600">Present this QR code at Gate 3 telemetry pit entrance.</p>
-                    </div>
-                    <!-- Simulated QR Code SVG -->
-                    <div class="w-16 h-16 bg-black p-1 rounded flex-shrink-0 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" class="w-full h-full fill-white">
-                            <rect x="0" y="0" width="30" height="30"/>
-                            <rect x="70" y="0" width="30" height="30"/>
-                            <rect x="0" y="70" width="30" height="30"/>
-                            <rect x="10" y="10" width="10" height="10" fill="black"/>
-                            <rect x="80" y="10" width="10" height="10" fill="black"/>
-                            <rect x="10" y="80" width="10" height="10" fill="black"/>
-                            <rect x="40" y="10" width="20" height="20"/>
-                            <rect x="40" y="40" width="20" height="20"/>
-                            <rect x="70" y="40" width="20" height="20"/>
-                            <rect x="10" y="40" width="20" height="20"/>
-                            <rect x="40" y="70" width="30" height="20"/>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="flex gap-3 justify-end pt-2 border-t border-gray-800">
-                    <button onclick="window.print()" class="px-4 py-2 bg-apexGray hover:bg-apexAccent text-white text-xs font-racing rounded-lg flex items-center gap-2">
-                        <i class="fa-solid fa-print"></i> Print Pass
-                    </button>
-                    <button onclick="closeTicketModal()" class="px-5 py-2 bg-apexRed hover:bg-red-600 text-white text-xs font-racing font-bold rounded-lg">
-                        Done
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <!-- JAVASCRIPT GAME ENGINE -->
     <script>
         /* ==========================================================================
-           SAMPLE DATA & STATE MANAGEMENT
+           GAME ENGINE CONFIGURATION & CUSTOMIZATION PARAMETERS
            ========================================================================== */
-        
-        const experiencesData = [
-            {
-                id: 'exp-gt3',
-                title: 'GT3 Supercar Sprint',
-                category: 'GT Supercars',
-                price: 499,
-                duration: '45 Mins',
-                horsepower: '520 HP',
-                topSpeed: '193 MPH',
-                laps: 7,
-                image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800',
-                desc: 'Take the helm of world-renowned precision track weapons with real-time telemetry coaching.'
-            },
-            {
-                id: 'exp-f1',
-                title: 'F1 Style Single Seater',
-                category: 'Single Seater',
-                price: 899,
-                duration: '60 Mins',
-                horsepower: '600 HP',
-                topSpeed: '205 MPH',
-                laps: 10,
-                image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800',
-                desc: 'Feel massive downforce and open-wheel speed in our lightweight single-seater racing chassis.'
-            },
-            {
-                id: 'exp-drift',
-                title: 'Drift Master Class',
-                category: 'Drift',
-                price: 399,
-                duration: '90 Mins',
-                horsepower: '450 HP',
-                topSpeed: '140 MPH',
-                laps: 'Unlimited Skidpad',
-                image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=800',
-                desc: 'Learn clutch kicks, angle control, and high-speed drift transitions on wet asphalt skidpads.'
-            },
-            {
-                id: 'exp-hyper',
-                title: 'Hypercar Endurance Challenge',
-                category: 'GT Supercars',
-                price: 1299,
-                duration: '2 Hours',
-                horsepower: '720 HP',
-                topSpeed: '212 MPH',
-                laps: 20,
-                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800',
-                desc: 'Full endurance telemetry session driving multiple hypercars with professional race debriefs.'
-            },
-            {
-                id: 'exp-junior',
-                title: 'Junior Racing Academy',
-                category: 'Drift',
-                price: 299,
-                duration: '60 Mins',
-                horsepower: '220 HP',
-                topSpeed: '120 MPH',
-                laps: 5,
-                image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800',
-                desc: 'Introductory track safety, racing line techniques, and guided lead-follow laps for young enthusiasts.'
+        const CONFIG = {
+            // Speed & Physics Adjustments
+            MAX_SPEED: 260,          // Max player speed in km/h
+            ACCELERATION: 1.8,       // Acceleration rate
+            DECELERATION: 0.8,       // Natural friction
+            BRAKING: 3.5,            // Brake power
+            HANDLING: 4.2,           // Steering sharpness
+            FUEL_CONSUMPTION: 0.04,  // Fuel burn rate per frame
+            
+            // Difficulty Scaling
+            INITIAL_TRAFFIC_SPAWN_RATE: 0.015, // Traffic density
+            MAX_TRAFFIC_SPAWN_RATE: 0.045,
+            
+            // Track Styling Colors
+            COLORS: {
+                grass: '#0d2b12',
+                grassAlt: '#0a210e',
+                rumbleRed: '#FF1801',
+                rumbleWhite: '#E2E8F0',
+                road: '#1a1c23',
+                line: '#FFD700'
             }
-        ];
-
-        const fleetData = [
-            {
-                id: 'car-911',
-                name: 'Porsche 911 GT3 RS',
-                category: 'GT Supercars',
-                surcharge: 0,
-                hp: 518,
-                zeroToSixty: '3.0s',
-                topSpeed: '184 MPH',
-                transmission: '7-Speed PDK',
-                image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=800',
-                audioFreq: 580
-            },
-            {
-                id: 'car-488',
-                name: 'Ferrari 488 GT3',
-                category: 'GT Supercars',
-                surcharge: 150,
-                hp: 600,
-                zeroToSixty: '2.8s',
-                topSpeed: '205 MPH',
-                transmission: '6-Speed Sequential',
-                image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800',
-                audioFreq: 640
-            },
-            {
-                id: 'car-720s',
-                name: 'McLaren 720S GT',
-                category: 'GT Supercars',
-                surcharge: 200,
-                hp: 710,
-                zeroToSixty: '2.7s',
-                topSpeed: '212 MPH',
-                transmission: '7-Speed SSG',
-                image: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&q=80&w=800',
-                audioFreq: 720
-            },
-            {
-                id: 'car-huracan',
-                name: 'Lamborghini Huracán Super Trofeo',
-                category: 'GT Supercars',
-                surcharge: 180,
-                hp: 620,
-                zeroToSixty: '2.9s',
-                topSpeed: '202 MPH',
-                transmission: '6-Speed Sequential',
-                image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=80&w=800',
-                audioFreq: 800
-            },
-            {
-                id: 'car-apex-f1',
-                name: 'Formula Apex Single-Seater',
-                category: 'Single Seater',
-                surcharge: 250,
-                hp: 650,
-                zeroToSixty: '2.4s',
-                topSpeed: '215 MPH',
-                transmission: 'Paddle Sequential',
-                image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800',
-                audioFreq: 950
-            }
-        ];
-
-        const tracksData = [
-            {
-                id: 'track-gp',
-                name: 'Apex International Speedway - GP Circuit',
-                distance: '3.6 Miles',
-                turns: 16,
-                difficulty: 'Professional / High Speed',
-                topLap: '1:22.410 (McLaren 720S GT)',
-                desc: 'Features a massive 0.8-mile back straight and technical double-apex sweepers designed for high downforce racing.',
-                mapSvg: `<svg viewBox="0 0 400 200" class="w-full h-48 stroke-apexRed fill-none stroke-[6] stroke-linecap-round stroke-linejoin-round"><path d="M 50,150 L 320,150 C 360,150 370,110 340,90 L 280,60 C 260,40 220,40 200,70 L 170,110 L 130,50 C 100,20 50,40 50,80 Z"/></svg>`
-            },
-            {
-                id: 'track-redline',
-                name: 'Redline Night Street Circuit',
-                distance: '2.8 Miles',
-                turns: 21,
-                difficulty: 'Extreme Technical',
-                topLap: '1:18.902 (Porsche 911 GT3)',
-                desc: 'Illuminated tight street course with barrier proximity, heavy braking zones, and rapid elevation changes.',
-                mapSvg: `<svg viewBox="0 0 400 200" class="w-full h-48 stroke-apexGold fill-none stroke-[6] stroke-linecap-round stroke-linejoin-round"><path d="M 60,160 L 340,160 C 370,160 370,130 330,120 L 250,120 C 230,120 220,90 240,70 L 300,50 C 320,30 290,20 250,30 L 120,40 C 80,40 50,80 70,110 L 120,110 L 60,160 Z"/></svg>`
-            },
-            {
-                id: 'track-monza',
-                name: 'Monza Sprint Track',
-                distance: '2.1 Miles',
-                turns: 9,
-                difficulty: 'Fast / Power Circuit',
-                topLap: '1:04.112 (Formula Apex)',
-                desc: 'Ultra-fast configuration with famous chicane entries allowing maximum speed runs and slipstream pass practice.',
-                mapSvg: `<svg viewBox="0 0 400 200" class="w-full h-48 stroke-white fill-none stroke-[6] stroke-linecap-round stroke-linejoin-round"><rect x="50" y="40" width="300" height="120" rx="60"/></svg>`
-            }
-        ];
-
-        // Global Booking State
-        let currentStep = 1;
-        let selectedPackage = experiencesData[0];
-        let selectedCar = fleetData[0];
-        let selectedTrack = tracksData[0];
-        let promoDiscount = 0;
-
-        /* ==========================================================================
-           INITIALIZATION & DOM RENDER
-           ========================================================================== */
-        window.onload = function() {
-            renderExperiences('all');
-            renderFleet(fleetData);
-            renderTracks();
-            initBookingFormOptions();
-            updateCalculations();
-            updateReservationBadge();
-
-            // Default Date Setup
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('formDate').value = tomorrow.toISOString().split('T')[0];
-
-            // Event Listeners for Live Search & Inputs
-            document.getElementById('carSearch').addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase();
-                const filtered = fleetData.filter(car => car.name.toLowerCase().includes(query) || car.category.toLowerCase().includes(query));
-                renderFleet(filtered);
-            });
-
-            document.getElementById('formPackage').addEventListener('change', (e) => {
-                selectedPackage = experiencesData.find(p => p.id === e.target.value);
-                updateCalculations();
-            });
-
-            document.getElementById('formCar').addEventListener('change', (e) => {
-                selectedCar = fleetData.find(c => c.id === e.target.value);
-                updateCalculations();
-            });
-
-            document.getElementById('formTrack').addEventListener('change', (e) => {
-                selectedTrack = tracksData.find(t => t.id === e.target.value);
-            });
-
-            document.getElementById('driverCount').addEventListener('input', updateCalculations);
-
-            document.querySelectorAll('.addon-checkbox').forEach(cb => {
-                cb.addEventListener('change', updateCalculations);
-            });
-
-            // Mobile Menu Toggle
-            document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.toggle('hidden');
-            });
-
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    document.getElementById('mobileMenu').classList.add('hidden');
-                });
-            });
         };
 
         /* ==========================================================================
-           EXPERIENCES RENDERER & FILTERS
+           WEB AUDIO SYNTHESIZER (No external audio files needed)
            ========================================================================== */
-        function renderExperiences(filterCategory) {
-            const grid = document.getElementById('experiencesGrid');
-            grid.innerHTML = '';
+        class AudioEngine {
+            constructor() {
+                this.ctx = null;
+                this.muted = false;
+                this.engineOsc = null;
+                this.engineGain = null;
+            }
 
-            const filtered = filterCategory === 'all' 
-                ? experiencesData 
-                : experiencesData.filter(e => e.category === filterCategory);
+            init() {
+                if (this.ctx) return;
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                this.ctx = new AudioCtx();
 
-            filtered.forEach(exp => {
-                const card = document.createElement('div');
-                card.className = 'glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-gray-800';
-                card.innerHTML = `
-                    <div>
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="${exp.image}" alt="${exp.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/800x400/12141c/ffffff?text=Apex+Racing'">
-                            <span class="absolute top-3 right-3 bg-black/80 text-apexGold text-[10px] font-racing font-bold px-2.5 py-1 rounded-full uppercase tracking-wider border border-apexGold/30">
-                                ${exp.category}
-                            </span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-racing font-bold text-white mb-2">${exp.title}</h3>
-                            <p class="text-xs text-gray-400 mb-4 leading-relaxed">${exp.desc}</p>
-                            
-                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-gray-800/80 text-center text-[11px] mb-4">
-                                <div>
-                                    <p class="text-gray-400 font-mono">POWER</p>
-                                    <p class="font-bold text-white font-racing">${exp.horsepower}</p>
-                                </div>
-                                <div class="border-x border-gray-800/80">
-                                    <p class="text-gray-400 font-mono">TOP SPEED</p>
-                                    <p class="font-bold text-apexRed font-racing">${exp.topSpeed}</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 font-mono">DURATION</p>
-                                    <p class="font-bold text-white font-racing">${exp.duration}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="px-6 pb-6 pt-0 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-gray-400 font-racing uppercase">Starting At</span>
-                            <p class="text-2xl font-racing font-black text-apexGold">$${exp.price}</p>
-                        </div>
-                        <button onclick="selectPackageAndBook('${exp.id}')" class="px-4 py-2 bg-apexRed hover:bg-red-600 text-white font-racing font-bold text-xs rounded-lg transition-all glow-red">
-                            Book Package
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+                // Engine Rev Sound Oscillator
+                this.engineOsc = this.ctx.createOscillator();
+                this.engineGain = this.ctx.createGain();
 
-            // Handle Filter Button States
-            document.querySelectorAll('#experienceFilters .filter-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    document.querySelectorAll('#experienceFilters .filter-btn').forEach(b => {
-                        b.classList.remove('bg-apexRed', 'text-white');
-                        b.classList.add('bg-apexGray', 'text-gray-300');
-                    });
-                    btn.classList.remove('bg-apexGray', 'text-gray-300');
-                    btn.classList.add('bg-apexRed', 'text-white');
-                    renderExperiences(btn.dataset.filter);
-                });
-            });
+                this.engineOsc.type = 'sawtooth';
+                this.engineOsc.frequency.setValueAtTime(60, this.ctx.currentTime);
+                this.engineGain.gain.setValueAtTime(0, this.ctx.currentTime);
+
+                this.engineOsc.connect(this.engineGain);
+                this.engineGain.connect(this.ctx.destination);
+                this.engineOsc.start();
+            }
+
+            updateEngine(speedRatio) {
+                if (!this.ctx || this.muted) return;
+                const freq = 60 + (speedRatio * 220); // Frequency ramps with speed
+                this.engineOsc.frequency.setTargetAtTime(freq, this.ctx.currentTime, 0.1);
+                this.engineGain.gain.setTargetAtTime(0.05, this.ctx.currentTime, 0.1);
+            }
+
+            stopEngine() {
+                if (this.engineGain) {
+                    this.engineGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.1);
+                }
+            }
+
+            playBeep(freq = 440, duration = 0.15) {
+                if (!this.ctx || this.muted) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+                gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start();
+                osc.stop(this.ctx.currentTime + duration);
+            }
+
+            playCrash() {
+                if (!this.ctx || this.muted) return;
+                // Noise buffer simulation for crash
+                const bufferSize = this.ctx.sampleRate * 0.4;
+                const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = buffer;
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.3, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.4);
+
+                noise.connect(gain);
+                gain.connect(this.ctx.destination);
+                noise.start();
+            }
+
+            playPickup() {
+                this.playBeep(880, 0.1);
+                setTimeout(() => this.playBeep(1200, 0.15), 80);
+            }
         }
 
-        function selectPackageAndBook(packageId) {
-            selectedPackage = experiencesData.find(p => p.id === packageId);
-            document.getElementById('formPackage').value = packageId;
-            updateCalculations();
-            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-            showToast(`Package selected: ${selectedPackage.title}`);
+        const audio = new AudioEngine();
+
+        function toggleMute() {
+            audio.muted = !audio.muted;
+            const icon = document.getElementById('audioIcon');
+            const text = document.getElementById('audioText');
+            if (audio.muted) {
+                icon.className = 'fa-solid fa-volume-xmark text-gray-400';
+                text.innerText = 'MUTED';
+                audio.stopEngine();
+            } else {
+                icon.className = 'fa-solid fa-volume-high text-apexRed';
+                text.innerText = 'SOUND ON';
+            }
         }
 
         /* ==========================================================================
-           FLEET RENDERER & AUDIO ENGINE SIMULATION
+           GAME STATE & VARIABLES
            ========================================================================== */
-        function renderFleet(cars) {
-            const grid = document.getElementById('fleetGrid');
-            grid.innerHTML = '';
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
 
-            if (cars.length === 0) {
-                grid.innerHTML = `<p class="col-span-full text-center text-gray-400 text-sm py-8">No cars found matching your search.</p>`;
+        let isPlaying = false;
+        let isPaused = false;
+        let score = 0;
+        let distance = 0;
+        let speed = 0;
+        let fuel = 100;
+        let health = 100;
+
+        // Player Position (Screen coordinates)
+        let playerX = 0; // Normalized -1 (left edge) to 1 (right edge)
+        let trackOffset = 0;
+
+        // Key states
+        const keys = { left: false, right: false, up: false, down: false };
+
+        // Game Entities
+        let traffic = [];
+        let pickups = [];
+        let particles = [];
+
+        /* ==========================================================================
+           CANVAS RESIZING & ASPECT RATIO
+           ========================================================================== */
+        function resizeCanvas() {
+            const container = document.getElementById('gameContainer');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        /* ==========================================================================
+           CONTROLS HANDLERS (Keyboard & Mobile Touch)
+           ========================================================================== */
+        window.addEventListener('keydown', (e) => {
+            if (['ArrowUp', 'KeyW'].includes(e.code)) keys.up = true;
+            if (['ArrowDown', 'KeyS'].includes(e.code)) keys.down = true;
+            if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = true;
+            if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = true;
+            if (['Escape', 'KeyP'].includes(e.code)) togglePause();
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (['ArrowUp', 'KeyW'].includes(e.code)) keys.up = false;
+            if (['ArrowDown', 'KeyS'].includes(e.code)) keys.down = false;
+            if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = false;
+            if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = false;
+        });
+
+        // Touch Control Listeners
+        const bindTouchBtn = (id, key) => {
+            const btn = document.getElementById(id);
+            btn.addEventListener('touchstart', (e) => { e.preventDefault(); keys[key] = true; });
+            btn.addEventListener('touchend', (e) => { e.preventDefault(); keys[key] = false; });
+            btn.addEventListener('mousedown', () => keys[key] = true);
+            btn.addEventListener('mouseup', () => keys[key] = false);
+        };
+        bindTouchBtn('btnLeft', 'left');
+        bindTouchBtn('btnRight', 'right');
+        bindTouchBtn('btnGas', 'up');
+        bindTouchBtn('btnBrake', 'down');
+
+        /* ==========================================================================
+           GAME LOOP & SEQUENCING
+           ========================================================================== */
+        function startGameSequence() {
+            audio.init();
+            document.getElementById('startOverlay').classList.add('hidden');
+            document.getElementById('gameOverOverlay').classList.add('hidden');
+            document.getElementById('pauseOverlay').classList.add('hidden');
+
+            // Reset Game Variables
+            score = 0;
+            distance = 0;
+            speed = 0;
+            fuel = 100;
+            health = 100;
+            playerX = 0;
+            traffic = [];
+            pickups = [];
+            particles = [];
+
+            // Countdown sequence
+            const countdownOverlay = document.getElementById('countdownOverlay');
+            const countdownText = document.getElementById('countdownText');
+            countdownOverlay.classList.remove('hidden');
+
+            let count = 3;
+            countdownText.innerText = count;
+            audio.playBeep(440, 0.2);
+
+            const timer = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    countdownText.innerText = count;
+                    audio.playBeep(440, 0.2);
+                } else if (count === 0) {
+                    countdownText.innerText = "GO!";
+                    audio.playBeep(880, 0.4);
+                } else {
+                    clearInterval(timer);
+                    countdownOverlay.classList.add('hidden');
+                    isPlaying = true;
+                    isPaused = false;
+                    requestAnimationFrame(gameLoop);
+                }
+            }, 800);
+        }
+
+        function togglePause() {
+            if (!isPlaying) return;
+            isPaused = !isPaused;
+            document.getElementById('pauseOverlay').classList.toggle('hidden', !isPaused);
+            if (!isPaused) requestAnimationFrame(gameLoop);
+            else audio.stopEngine();
+        }
+
+        function resetToMenu() {
+            isPlaying = false;
+            isPaused = false;
+            audio.stopEngine();
+            document.getElementById('startOverlay').classList.remove('hidden');
+            document.getElementById('pauseOverlay').classList.add('hidden');
+            document.getElementById('gameOverOverlay').classList.add('hidden');
+        }
+
+        function triggerGameOver(reason) {
+            isPlaying = false;
+            audio.stopEngine();
+            audio.playCrash();
+
+            document.getElementById('gameOverReason').innerText = reason;
+            document.getElementById('finalScore').innerText = Math.floor(score);
+            document.getElementById('finalDistance').innerText = `${distance.toFixed(1)} km`;
+
+            // Check for high score
+            const isHigh = checkHighScore(Math.floor(score));
+            const highScoreInputArea = document.getElementById('highScoreInputArea');
+            if (isHigh) {
+                highScoreInputArea.classList.remove('hidden');
+            } else {
+                highScoreInputArea.classList.add('hidden');
+            }
+
+            document.getElementById('gameOverOverlay').classList.remove('hidden');
+        }
+
+        /* ==========================================================================
+           MAIN UPDATE & RENDER LOOP
+           ========================================================================== */
+        let lastTime = performance.now();
+
+        function gameLoop(currentTime) {
+            if (!isPlaying || isPaused) return;
+
+            const dt = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
+
+            updatePhysics();
+            updateEntities();
+            renderCanvas();
+            updateHUD();
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        /* ==========================================================================
+           PHYSICS & GAME LOGIC
+           ========================================================================== */
+        function updatePhysics() {
+            // Speed controls
+            if (keys.up) {
+                speed += CONFIG.ACCELERATION;
+            } else if (keys.down) {
+                speed -= CONFIG.BRAKING;
+            } else {
+                speed -= CONFIG.DECELERATION;
+            }
+
+            // Speed limits
+            speed = Math.max(0, Math.min(CONFIG.MAX_SPEED, speed));
+
+            // Steering (sharpness scales slightly with speed)
+            if (speed > 5) {
+                const steerAmount = (CONFIG.HANDLING / 100) * (speed / CONFIG.MAX_SPEED + 0.3);
+                if (keys.left) playerX -= steerAmount;
+                if (keys.right) playerX += steerAmount;
+            }
+
+            // Off-road slowdown and bounds check
+            if (Math.abs(playerX) > 0.75) {
+                speed *= 0.96; // Grass friction
+                // Create rumble particles
+                if (speed > 30 && Math.random() < 0.3) {
+                    particles.push({
+                        x: (canvas.width / 2) + (playerX * canvas.width * 0.35),
+                        y: canvas.height - 60,
+                        vx: (Math.random() - 0.5) * 4,
+                        vy: -Math.random() * 3,
+                        color: '#0d2b12',
+                        size: 4,
+                        life: 1
+                    });
+                }
+            }
+            playerX = Math.max(-0.95, Math.min(0.95, playerX));
+
+            // Track movement
+            trackOffset += speed * 0.15;
+
+            // Fuel consumption
+            if (speed > 0) {
+                fuel -= CONFIG.FUEL_CONSUMPTION * (speed / CONFIG.MAX_SPEED + 0.5);
+                distance += (speed / 3600) * 0.1; // Simulated Distance
+                score += (speed / 100);
+            }
+
+            if (fuel <= 0) {
+                triggerGameOver("OUT OF FUEL!");
+            }
+
+            // Audio pitch update
+            audio.updateEngine(speed / CONFIG.MAX_SPEED);
+        }
+
+        /* ==========================================================================
+           ENTITIES & SPAWNING LOGIC
+           ========================================================================== */
+        function updateEntities() {
+            const spawnRate = CONFIG.INITIAL_TRAFFIC_SPAWN_RATE + (distance * 0.005);
+
+            // Spawn Traffic Cars
+            if (Math.random() < Math.min(CONFIG.MAX_TRAFFIC_SPAWN_RATE, spawnRate)) {
+                traffic.push({
+                    lane: (Math.random() * 1.2) - 0.6, // Normalized lane position
+                    z: 1000,                            // Far distance
+                    speed: 40 + Math.random() * 80,
+                    color: ['#3b82f6', '#e11d48', '#10b981', '#a855f7', '#f97316'][Math.floor(Math.random() * 5)]
+                });
+            }
+
+            // Spawn Pickups
+            if (Math.random() < 0.008) {
+                const types = ['fuel', 'nitro', 'repair'];
+                pickups.push({
+                    lane: (Math.random() * 1.2) - 0.6,
+                    z: 1000,
+                    type: types[Math.floor(Math.random() * types.length)]
+                });
+            }
+
+            // Update Traffic
+            for (let i = traffic.length - 1; i >= 0; i--) {
+                const t = traffic[i];
+                t.z -= (speed - t.speed) * 0.8;
+
+                // Collision Check
+                if (t.z < 100 && t.z > 20) {
+                    if (Math.abs(t.lane - playerX) < 0.22) {
+                        // Crash occurred
+                        health -= 35;
+                        speed *= 0.3;
+                        audio.playCrash();
+
+                        // Explosion sparks
+                        for (let p = 0; p < 15; p++) {
+                            particles.push({
+                                x: (canvas.width / 2) + (playerX * canvas.width * 0.35),
+                                y: canvas.height - 80,
+                                vx: (Math.random() - 0.5) * 8,
+                                vy: (Math.random() - 0.5) * 8,
+                                color: '#FF1801',
+                                size: 5,
+                                life: 1
+                            });
+                        }
+
+                        traffic.splice(i, 1);
+                        if (health <= 0) {
+                            triggerGameOver("VEHICLE DESTROYED!");
+                        }
+                        continue;
+                    }
+                }
+
+                if (t.z < -100) traffic.splice(i, 1);
+            }
+
+            // Update Pickups
+            for (let i = pickups.length - 1; i >= 0; i--) {
+                const p = pickups[i];
+                p.z -= speed * 0.8;
+
+                if (p.z < 100 && p.z > 20) {
+                    if (Math.abs(p.lane - playerX) < 0.25) {
+                        // Collected Bonus
+                        audio.playPickup();
+                        if (p.type === 'fuel') fuel = Math.min(100, fuel + 30);
+                        if (p.type === 'nitro') { score += 500; speed = Math.min(CONFIG.MAX_SPEED, speed + 40); }
+                        if (p.type === 'repair') health = Math.min(100, health + 25);
+
+                        pickups.splice(i, 1);
+                        continue;
+                    }
+                }
+
+                if (p.z < -100) pickups.splice(i, 1);
+            }
+
+            // Update Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const pt = particles[i];
+                pt.x += pt.vx;
+                pt.y += pt.vy;
+                pt.life -= 0.05;
+                if (pt.life <= 0) particles.splice(i, 1);
+            }
+        }
+
+        /* ==========================================================================
+           CANVAS PSEUDO-3D RENDERING
+           ========================================================================== */
+        function renderCanvas() {
+            const w = canvas.width;
+            const h = canvas.height;
+            const horizon = h * 0.4;
+
+            // 1. Draw Horizon Background & Sky Gradient
+            const skyGrad = ctx.createLinearGradient(0, 0, 0, horizon);
+            skyGrad.addColorStop(0, '#050608');
+            skyGrad.addColorStop(1, '#181b26');
+            ctx.fillStyle = skyGrad;
+            ctx.fillRect(0, 0, w, horizon);
+
+            // Horizon Sun/Glow
+            ctx.fillStyle = 'rgba(255, 24, 1, 0.15)';
+            ctx.beginPath();
+            ctx.arc(w / 2, horizon, 120, 0, Math.PI * 2);
+            ctx.fill();
+
+            // 2. Draw Grass Field
+            ctx.fillStyle = CONFIG.COLORS.grass;
+            ctx.fillRect(0, horizon, w, h - horizon);
+
+            // 3. Draw Track Projection (Trapezoid Perspective)
+            const roadWidthBottom = w * 0.7;
+            const roadWidthTop = w * 0.1;
+
+            const topLeft = (w / 2) - (roadWidthTop / 2);
+            const topRight = (w / 2) + (roadWidthTop / 2);
+            const bottomLeft = (w / 2) - (roadWidthBottom / 2);
+            const bottomRight = (w / 2) + (roadWidthBottom / 2);
+
+            // Asphalt
+            ctx.fillStyle = CONFIG.COLORS.road;
+            ctx.beginPath();
+            ctx.moveTo(topLeft, horizon);
+            ctx.lineTo(topRight, horizon);
+            ctx.lineTo(bottomRight, h);
+            ctx.lineTo(bottomLeft, h);
+            ctx.fill();
+
+            // Rumble Strips (Red & White alternating)
+            const stripCount = 12;
+            for (let i = 0; i < stripCount; i++) {
+                const z1 = (i / stripCount);
+                const z2 = ((i + 0.5) / stripCount);
+
+                const y1 = horizon + Math.pow(z1, 2) * (h - horizon);
+                const y2 = horizon + Math.pow(z2, 2) * (h - horizon);
+
+                const w1 = roadWidthTop + z1 * (roadWidthBottom - roadWidthTop);
+                const w2 = roadWidthTop + z2 * (roadWidthBottom - roadWidthTop);
+
+                // Alternating Rumble Color
+                const isRed = (Math.floor(trackOffset / 30) + i) % 2 === 0;
+                ctx.fillStyle = isRed ? CONFIG.COLORS.rumbleRed : CONFIG.COLORS.rumbleWhite;
+
+                // Left Rumble
+                ctx.beginPath();
+                ctx.moveTo((w / 2) - (w1 / 2) - (w1 * 0.05), y1);
+                ctx.lineTo((w / 2) - (w1 / 2), y1);
+                ctx.lineTo((w / 2) - (w2 / 2), y2);
+                ctx.lineTo((w / 2) - (w2 / 2) - (w2 * 0.05), y2);
+                ctx.fill();
+
+                // Right Rumble
+                ctx.beginPath();
+                ctx.moveTo((w / 2) + (w1 / 2), y1);
+                ctx.lineTo((w / 2) + (w1 / 2) + (w1 * 0.05), y1);
+                ctx.lineTo((w / 2) + (w2 / 2) + (w2 * 0.05), y2);
+                ctx.lineTo((w / 2) + (w2 / 2), y2);
+                ctx.fill();
+            }
+
+            // Animated Center Dash Lines
+            ctx.strokeStyle = CONFIG.COLORS.line;
+            ctx.lineWidth = 3;
+            for (let i = 0; i < 8; i++) {
+                const z1 = ((i + (trackOffset % 20) / 20) / 8);
+                if (z1 > 1) continue;
+                const y = horizon + Math.pow(z1, 2) * (h - horizon);
+                const lineW = 2 + z1 * 10;
+                ctx.beginPath();
+                ctx.moveTo(w / 2 - lineW / 2, y);
+                ctx.lineTo(w / 2 + lineW / 2, y);
+                ctx.stroke();
+            }
+
+            // 4. Render Traffic Cars Perspective
+            traffic.forEach(t => {
+                const zNorm = 1 - (t.z / 1000);
+                if (zNorm > 0 && zNorm < 1) {
+                    const py = horizon + Math.pow(zNorm, 2) * (h - horizon);
+                    const scale = 0.1 + (zNorm * 0.8);
+                    const roadW = roadWidthTop + zNorm * (roadWidthBottom - roadWidthTop);
+                    const px = (w / 2) + (t.lane * roadW * 0.45);
+
+                    drawCar(px, py, scale, t.color, false);
+                }
+            });
+
+            // 5. Render Pickups Perspective
+            pickups.forEach(p => {
+                const zNorm = 1 - (p.z / 1000);
+                if (zNorm > 0 && zNorm < 1) {
+                    const py = horizon + Math.pow(zNorm, 2) * (h - horizon);
+                    const scale = 0.1 + (zNorm * 0.8);
+                    const roadW = roadWidthTop + zNorm * (roadWidthBottom - roadWidthTop);
+                    const px = (w / 2) + (p.lane * roadW * 0.45);
+
+                    // Draw Glowing Item Crate
+                    ctx.save();
+                    ctx.translate(px, py);
+                    ctx.scale(scale, scale);
+                    ctx.fillStyle = p.type === 'fuel' ? '#FFD700' : (p.type === 'nitro' ? '#10b981' : '#60a5fa');
+                    ctx.shadowColor = ctx.fillStyle;
+                    ctx.shadowBlur = 15;
+                    ctx.beginPath();
+                    ctx.arc(0, -15, 12, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            });
+
+            // 6. Render Particles
+            particles.forEach(pt => {
+                ctx.fillStyle = pt.color;
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // 7. Render Player Car
+            const playerPx = (w / 2) + (playerX * roadWidthBottom * 0.42);
+            const playerPy = h - 50;
+            drawCar(playerPx, playerPy, 1.0, '#FF1801', true);
+        }
+
+        /* Helper function to draw dynamic vector car shapes */
+        function drawCar(x, y, scale, color, isPlayer = false) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(scale, scale);
+
+            // Car Body Shadow
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            ctx.beginPath();
+            ctx.ellipse(0, 5, 30, 12, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Main Car Chassis
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.roundRect(-22, -45, 44, 45, [8, 8, 4, 4]);
+            ctx.fill();
+
+            // Cabin / Windshield
+            ctx.fillStyle = '#0a0b0e';
+            ctx.beginPath();
+            ctx.roundRect(-16, -32, 32, 20, [4, 4, 2, 2]);
+            ctx.fill();
+
+            // Tail lights
+            ctx.fillStyle = isPlayer ? '#FF1801' : '#f59e0b';
+            ctx.fillRect(-18, -2, 8, 3);
+            ctx.fillRect(10, -2, 8, 3);
+
+            // Side Mirrors
+            ctx.fillStyle = color;
+            ctx.fillRect(-26, -28, 4, 6);
+            ctx.fillRect(22, -28, 4, 6);
+
+            ctx.restore();
+        }
+
+        /* ==========================================================================
+           HUD & DOM TELEMETRY UPDATES
+           ========================================================================== */
+        function updateHUD() {
+            document.getElementById('hudSpeed').innerText = Math.floor(speed);
+            document.getElementById('hudGear').innerText = Math.min(6, Math.floor(speed / 45) + 1);
+            document.getElementById('hudScore').innerText = Math.floor(score);
+            document.getElementById('hudDistance').innerText = `${distance.toFixed(1)} KM`;
+
+            // Fuel & Integrity Bars
+            document.getElementById('hudFuelVal').innerText = `${Math.floor(fuel)}%`;
+            document.getElementById('hudFuelBar').style.width = `${fuel}%`;
+
+            document.getElementById('hudHealthVal').innerText = `${Math.floor(health)}%`;
+            document.getElementById('hudHealthBar').style.width = `${health}%`;
+        }
+
+        /* ==========================================================================
+           HIGH SCORE LEADERBOARD SYSTEM (LocalStorage)
+           ========================================================================== */
+        function getLeaderboard() {
+            return JSON.parse(localStorage.getItem('apex_gt_leaderboard') || '[]');
+        }
+
+        function checkHighScore(newScore) {
+            const board = getLeaderboard();
+            if (board.length < 5 || newScore > (board[board.length - 1]?.score || 0)) {
+                return true;
+            }
+            return false;
+        }
+
+        function renderLeaderboard() {
+            const board = getLeaderboard();
+            const list = document.getElementById('leaderboardList');
+            const navBest = document.getElementById('navHighScore');
+
+            if (board.length > 0) {
+                navBest.innerText = board[0].score;
+            }
+
+            if (board.length === 0) {
+                list.innerHTML = `<p class="text-gray-500 italic text-[11px]">No high scores recorded yet.</p>`;
                 return;
             }
 
-            cars.forEach(car => {
-                const card = document.createElement('div');
-                card.className = 'glass-card rounded-2xl p-5 border border-gray-800 flex flex-col justify-between';
-                card.innerHTML = `
-                    <div>
-                        <div class="relative h-44 rounded-xl overflow-hidden mb-4">
-                            <img src="${car.image}" alt="${car.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x400/12141c/ffffff?text=Supercar'">
-                            <button onclick="playEngineSound(${car.audioFreq})" class="absolute bottom-3 right-3 w-9 h-9 bg-apexRed/90 hover:bg-apexRed text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" title="Audio Sound Simulation">
-                                <i class="fa-solid fa-volume-high text-xs"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-lg font-racing font-bold text-white">${car.name}</h3>
-                        <p class="text-xs text-apexGold font-semibold mb-3">${car.surcharge > 0 ? `+$${car.surcharge} Supercar Upgrade Fee` : 'Included Standard'}</p>
-
-                        <div class="space-y-1.5 text-xs text-gray-300 mb-4">
-                            <div class="flex justify-between py-1 border-b border-gray-800/50">
-                                <span class="text-gray-400">0 - 60 MPH</span>
-                                <span class="font-bold text-white">${car.zeroToSixty}</span>
-                            </div>
-                            <div class="flex justify-between py-1 border-b border-gray-800/50">
-                                <span class="text-gray-400">Horsepower</span>
-                                <span class="font-bold text-white">${car.hp} HP</span>
-                            </div>
-                            <div class="flex justify-between py-1 border-b border-gray-800/50">
-                                <span class="text-gray-400">Top Speed</span>
-                                <span class="font-bold text-apexRed font-racing">${car.topSpeed}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button onclick="selectCarAndBook('${car.id}')" class="w-full py-2.5 bg-apexGray hover:bg-apexAccent text-white font-racing font-bold text-xs rounded-lg transition-colors border border-gray-700">
-                        Choose This Vehicle
-                    </button>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function selectCarAndBook(carId) {
-            selectedCar = fleetData.find(c => c.id === carId);
-            document.getElementById('formCar').value = carId;
-            updateCalculations();
-            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-            showToast(`Vehicle selected: ${selectedCar.name}`);
-        }
-
-        // Web Audio API Synth Engine Sound Simulation
-        function playEngineSound(freq) {
-            try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                const ctx = new AudioCtx();
-                
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(120, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(freq, ctx.currentTime + 0.6);
-                osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 1.2);
-
-                gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
-
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-
-                osc.start();
-                osc.stop(ctx.currentTime + 1.2);
-
-                showToast("🔊 Engine Rev Audio Previewing!");
-            } catch (e) {
-                console.log('Audio Context restricted or not supported.');
-            }
-        }
-
-        /* ==========================================================================
-           TRACK SELECTOR & DISPLAY
-           ========================================================================== */
-        function renderTracks() {
-            const tabsContainer = document.getElementById('trackTabs');
-            tabsContainer.innerHTML = '';
-
-            tracksData.forEach((track, index) => {
-                const btn = document.createElement('button');
-                btn.className = `px-5 py-2.5 rounded-lg text-xs font-racing font-bold uppercase transition-all ${index === 0 ? 'bg-apexRed text-white shadow-lg' : 'bg-apexGray text-gray-300 hover:bg-apexAccent'}`;
-                btn.innerText = track.name.split('-')[0];
-                btn.onclick = () => showTrackDetail(track.id, btn);
-                tabsContainer.appendChild(btn);
-            });
-
-            showTrackDetail(tracksData[0].id, tabsContainer.children[0]);
-        }
-
-        function showTrackDetail(trackId, activeBtn) {
-            selectedTrack = tracksData.find(t => t.id === trackId);
-
-            document.querySelectorAll('#trackTabs button').forEach(b => {
-                b.className = 'px-5 py-2.5 rounded-lg text-xs font-racing font-bold uppercase transition-all bg-apexGray text-gray-300 hover:bg-apexAccent';
-            });
-            if (activeBtn) {
-                activeBtn.className = 'px-5 py-2.5 rounded-lg text-xs font-racing font-bold uppercase transition-all bg-apexRed text-white shadow-lg';
-            }
-
-            const display = document.getElementById('trackDisplay');
-            display.innerHTML = `
-                <div class="lg:col-span-6 space-y-4">
-                    <span class="text-xs font-racing font-bold text-apexGold uppercase tracking-widest">Circuit Specifications</span>
-                    <h3 class="text-2xl font-racing font-black text-white">${selectedTrack.name}</h3>
-                    <p class="text-xs text-gray-300 leading-relaxed">${selectedTrack.desc}</p>
-                    
-                    <div class="grid grid-cols-3 gap-3 pt-2 text-xs">
-                        <div class="bg-apexGray/60 p-3 rounded-lg border border-gray-800">
-                            <p class="text-gray-400 font-mono text-[10px]">DISTANCE</p>
-                            <p class="font-bold text-white font-racing mt-0.5">${selectedTrack.distance}</p>
-                        </div>
-                        <div class="bg-apexGray/60 p-3 rounded-lg border border-gray-800">
-                            <p class="text-gray-400 font-mono text-[10px]">TURNS</p>
-                            <p class="font-bold text-apexGold font-racing mt-0.5">${selectedTrack.turns} Apexes</p>
-                        </div>
-                        <div class="bg-apexGray/60 p-3 rounded-lg border border-gray-800">
-                            <p class="text-gray-400 font-mono text-[10px]">DIFFICULTY</p>
-                            <p class="font-bold text-apexRed font-racing mt-0.5">${selectedTrack.difficulty}</p>
-                        </div>
-                    </div>
-
-                    <p class="text-xs text-gray-400"><i class="fa-solid fa-trophy text-apexGold mr-1"></i> Circuit Lap Record: <span class="text-white font-mono">${selectedTrack.topLap}</span></p>
+            list.innerHTML = board.map((item, idx) => `
+                <div class="flex justify-between items-center bg-apexGray/60 p-1.5 px-2 rounded font-mono">
+                    <span class="text-apexGold font-bold">#${idx + 1} ${item.name}</span>
+                    <span class="text-white">${item.score} pts</span>
                 </div>
-
-                <div class="lg:col-span-6 bg-black/60 p-6 rounded-xl border border-gray-800 flex flex-col items-center justify-center relative">
-                    <span class="absolute top-3 left-3 text-[10px] font-mono text-gray-500">TELEMETRY LAYOUT MAP</span>
-                    ${selectedTrack.mapSvg}
-                </div>
-            `;
+            `).join('');
         }
 
-        /* ==========================================================================
-           BOOKING ENGINE FORM & REAL-TIME CALCULATOR
-           ========================================================================== */
-        function initBookingFormOptions() {
-            const pkgSelect = document.getElementById('formPackage');
-            pkgSelect.innerHTML = experiencesData.map(p => `<option value="${p.id}">${p.title} - $${p.price}</option>`).join('');
-
-            const carSelect = document.getElementById('formCar');
-            carSelect.innerHTML = fleetData.map(c => `<option value="${c.id}">${c.name} ${c.surcharge > 0 ? `(+$${c.surcharge})` : ''}</option>`).join('');
-
-            const trackSelect = document.getElementById('formTrack');
-            trackSelect.innerHTML = tracksData.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+        function clearLeaderboard() {
+            localStorage.removeItem('apex_gt_leaderboard');
+            document.getElementById('navHighScore').innerText = '0';
+            renderLeaderboard();
         }
 
-        function updateCalculations() {
-            const basePrice = selectedPackage ? selectedPackage.price : 0;
-            const carSurcharge = selectedCar ? selectedCar.surcharge : 0;
+        // Save High Score on Input Submit
+        document.getElementById('playerNameInput')?.addEventListener('change', (e) => {
+            const name = e.target.value.trim().toUpperCase() || 'DRIVER';
+            let board = getLeaderboard();
+            board.push({ name: name, score: Math.floor(score) });
+            board.sort((a, b) => b.score - a.score);
+            board = board.slice(0, 5); // Keep top 5
+            localStorage.setItem('apex_gt_leaderboard', JSON.stringify(board));
+            renderLeaderboard();
+            document.getElementById('highScoreInputArea').classList.add('hidden');
+        });
 
-            let addOnsTotal = 0;
-            document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
-                addOnsTotal += parseFloat(cb.dataset.price || 0);
-            });
-
-            const driversCount = parseInt(document.getElementById('driverCount').value) || 1;
-
-            const subtotalBeforeDiscount = (basePrice + carSurcharge + addOnsTotal) * driversCount;
-            const discountAmount = subtotalBeforeDiscount * promoDiscount;
-            const subtotal = subtotalBeforeDiscount - discountAmount;
-
-            const taxAndFees = subtotal * 0.08;
-            const grandTotal = subtotal + taxAndFees;
-
-            // Update Price DOM
-            document.getElementById('calcBasePrice').innerText = `$${basePrice}`;
-            document.getElementById('calcCarPrice').innerText = `+$${carSurcharge}`;
-            document.getElementById('calcAddonsPrice').innerText = `+$${addOnsTotal}`;
-            document.getElementById('calcDriverMultiplier').innerText = `x${driversCount}`;
-            
-            if (promoDiscount > 0) {
-                document.getElementById('calcDiscountRow').classList.remove('hidden');
-                document.getElementById('calcDiscountPrice').innerText = `-$${discountAmount.toFixed(2)}`;
-            } else {
-                document.getElementById('calcDiscountRow').classList.add('hidden');
-            }
-
-            document.getElementById('calcTaxPrice').innerText = `$${taxAndFees.toFixed(2)}`;
-            document.getElementById('calcTotalPrice').innerText = `$${grandTotal.toFixed(2)}`;
-        }
-
-        function goToStep(step) {
-            // Validation check before moving step 4
-            if (step === 4) {
-                const name = document.getElementById('driverName').value.trim();
-                const email = document.getElementById('driverEmail').value.trim();
-                const age = parseInt(document.getElementById('driverAge').value);
-                const waiver = document.getElementById('safetyWaiverAgree').checked;
-
-                if (!name || !email) {
-                    showToast('⚠️ Please provide driver name and email.');
-                    return;
-                }
-                if (isNaN(age) || age < 18) {
-                    showToast('⚠️ Drivers must be 18 years or older.');
-                    return;
-                }
-                if (!waiver) {
-                    showToast('⚠️ You must accept the Safety & Liability agreement.');
-                    return;
-                }
-
-                // Update Summary Fields for Step 4
-                document.getElementById('summaryDriverName').innerText = name;
-                document.getElementById('summaryTrackName').innerText = selectedTrack.name;
-                document.getElementById('summaryDateTime').innerText = `${document.getElementById('formDate').value} @ ${document.getElementById('formTime').value}`;
-                document.getElementById('summaryCarPkg').innerText = `${selectedPackage.title} (${selectedCar.name})`;
-            }
-
-            currentStep = step;
-
-            // Hide all steps, display target
-            document.querySelectorAll('.booking-step').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`bookingStep${step}`).classList.remove('hidden');
-
-            // Update Progress Bar
-            const progressPercent = ((step - 1) / 3) * 100;
-            document.getElementById('stepProgressBar').style.width = `${progressPercent}%`;
-
-            // Update Step Indicators
-            document.querySelectorAll('.step-indicator').forEach(ind => {
-                const stepNum = parseInt(ind.dataset.step);
-                const icon = ind.querySelector('.step-icon');
-                const text = ind.querySelector('span');
-
-                if (stepNum <= step) {
-                    icon.classList.remove('bg-apexGray', 'text-gray-400');
-                    icon.classList.add('bg-apexRed', 'text-white');
-                    text.classList.remove('text-gray-400');
-                    text.classList.add('text-white');
-                } else {
-                    icon.classList.remove('bg-apexRed', 'text-white');
-                    icon.classList.add('bg-apexGray', 'text-gray-400');
-                    text.classList.remove('text-white');
-                    text.classList.add('text-gray-400');
-                }
-            });
-        }
-
-        function applyPromoCode() {
-            const input = document.getElementById('promoCodeInput').value.trim().toUpperCase();
-            const status = document.getElementById('promoStatus');
-
-            if (input === 'APEX10') {
-                promoDiscount = 0.10; // 10% discount
-                status.innerText = '✓ Promo Code APEX10 Applied! (10% Discount)';
-                status.className = 'text-xs mt-1 font-semibold text-emerald-400 block';
-                showToast('🎉 Promo code applied successfully!');
-            } else {
-                promoDiscount = 0;
-                status.innerText = '❌ Invalid Promo Code';
-                status.className = 'text-xs mt-1 font-semibold text-red-400 block';
-            }
-            updateCalculations();
-        }
-
-        /* ==========================================================================
-           FINALIZE BOOKING & LOCALSTORAGE PERSISTENCE
-           ========================================================================== */
-        function finalizeBooking() {
-            const passCode = 'APX-' + Math.floor(10000 + Math.random() * 90000);
-            const driverName = document.getElementById('driverName').value;
-            const dateStr = document.getElementById('formDate').value;
-            const timeStr = document.getElementById('formTime').value;
-
-            const reservation = {
-                code: passCode,
-                driver: driverName,
-                email: document.getElementById('driverEmail').value,
-                track: selectedTrack.name,
-                package: selectedPackage.title,
-                car: selectedCar.name,
-                dateTime: `${dateStr} (${timeStr.split(' - ')[0]})`,
-                totalPrice: document.getElementById('calcTotalPrice').innerText,
-                bookedAt: new Date().toLocaleDateString()
-            };
-
-            // Save to LocalStorage
-            const existing = JSON.parse(localStorage.getItem('apex_reservations') || '[]');
-            existing.unshift(reservation);
-            localStorage.setItem('apex_reservations', JSON.stringify(existing));
-
-            updateReservationBadge();
-
-            // Populate Digital Pass Modal
-            document.getElementById('ticketPassCode').innerText = passCode;
-            document.getElementById('ticketDriver').innerText = driverName;
-            document.getElementById('ticketTrack').innerText = selectedTrack.name;
-            document.getElementById('ticketDateTime').innerText = `${dateStr} - ${timeStr}`;
-            document.getElementById('ticketCarPkg').innerText = `${selectedCar.name} / ${selectedPackage.title}`;
-
-            // Show Ticket Modal
-            document.getElementById('ticketModal').classList.remove('hidden');
-            showToast('🏁 Reservation Confirmed! Digital Pass Generated.');
-        }
-
-        function closeTicketModal() {
-            document.getElementById('ticketModal').classList.add('hidden');
-            goToStep(1);
-        }
-
-        /* ==========================================================================
-           MY RESERVATIONS MODAL & STORAGE MANAGEMENT
-           ========================================================================== */
-        function updateReservationBadge() {
-            const reservations = JSON.parse(localStorage.getItem('apex_reservations') || '[]');
-            const badge = document.getElementById('reservationBadge');
-            if (reservations.length > 0) {
-                badge.innerText = reservations.length;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-            }
-        }
-
-        function openReservationsModal() {
-            const list = document.getElementById('reservationsList');
-            const reservations = JSON.parse(localStorage.getItem('apex_reservations') || '[]');
-
-            if (reservations.length === 0) {
-                list.innerHTML = `
-                    <div class="text-center py-10 text-gray-400">
-                        <i class="fa-solid fa-ticket-simple text-4xl mb-3 text-gray-600"></i>
-                        <p class="font-racing">No Track Sessions Booked Yet.</p>
-                        <p class="text-xs text-gray-500 mt-1">Reserve a lap above to view your boarding passes.</p>
-                    </div>
-                `;
-            } else {
-                list.innerHTML = reservations.map((res, index) => `
-                    <div class="bg-apexGray p-4 rounded-xl border border-gray-700/80 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-                        <div class="space-y-1 text-xs">
-                            <div class="flex items-center gap-2">
-                                <span class="font-mono text-apexGold font-bold">${res.code}</span>
-                                <span class="text-gray-400">• Booked on ${res.bookedAt}</span>
-                            </div>
-                            <p class="font-bold text-white text-sm">${res.package} - ${res.car}</p>
-                            <p class="text-gray-300"><i class="fa-solid fa-location-dot text-apexRed"></i> ${res.track}</p>
-                            <p class="text-gray-400"><i class="fa-solid fa-clock text-apexGold"></i> ${res.dateTime}</p>
-                        </div>
-                        <div class="flex sm:flex-col items-end justify-between gap-2 border-t sm:border-t-0 border-gray-700 pt-2 sm:pt-0">
-                            <span class="font-racing font-bold text-apexGold text-base">${res.totalPrice}</span>
-                            <button onclick="cancelReservation(${index})" class="text-[11px] text-red-400 hover:text-red-300 font-semibold flex items-center gap-1">
-                                <i class="fa-solid fa-trash"></i> Cancel
-                            </button>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            document.getElementById('reservationsModal').classList.remove('hidden');
-        }
-
-        function closeReservationsModal() {
-            document.getElementById('reservationsModal').classList.add('hidden');
-        }
-
-        function cancelReservation(index) {
-            let reservations = JSON.parse(localStorage.getItem('apex_reservations') || '[]');
-            reservations.splice(index, 1);
-            localStorage.setItem('apex_reservations', JSON.stringify(reservations));
-            updateReservationBadge();
-            openReservationsModal();
-            showToast('Session cancelled.');
-        }
-
-        /* ==========================================================================
-           UI ACCORDION & TOAST NOTIFICATION UTILITIES
-           ========================================================================== */
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const icon = document.getElementById(`${id}-icon`);
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-
-        function showToast(message) {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'glass-panel text-white text-xs font-racing font-semibold px-4 py-3 rounded-lg border-l-4 border-apexRed shadow-2xl flex items-center gap-2 transition-all transform translate-x-10 opacity-0 pointer-events-auto';
-            toast.innerHTML = `<i class="fa-solid fa-circle-info text-apexGold"></i> <span>${message}</span>`;
-            
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.classList.remove('translate-x-10', 'opacity-0');
-            }, 10);
-
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-x-10');
-                setTimeout(() => toast.remove(), 300);
-            }, 3500);
-        }
+        // Initialize Leaderboard on Load
+        renderLeaderboard();
     </script>
 </body>
 </html>
